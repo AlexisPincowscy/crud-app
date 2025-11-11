@@ -1,0 +1,52 @@
+$bp-tablet: 768px;
+
+.users-list {
+  h1 {
+    margin: 0;
+    font-size: 1.75rem;
+  }
+
+  .muted-text {
+    margin: 0.25rem 0 0;
+    color: var(--color-muted);
+  }
+}
+
+.user-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-address {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.actions-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.actions-row .btn {
+  width: 100%;
+}
+
+@media (min-width: $bp-tablet) {
+  .actions-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: auto;
+  }
+
+  .actions-row .btn {
+    width: auto;
+  }
+}

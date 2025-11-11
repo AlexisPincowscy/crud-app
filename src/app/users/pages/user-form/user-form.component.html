@@ -1,0 +1,91 @@
+<section class="page user-form">
+  <form [formGroup]="form" (ngSubmit)="handleSubmit()" novalidate>
+    <div class="page-header">
+      <div>
+        <h1>{{ pageTitle() }}</h1>
+        <p class="muted-text">
+          {{ isEditMode() ? 'Atualize as informações do usuário selecionado.' : 'Preencha o formulário para criar um novo usuário.' }}
+        </p>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn btn-secondary" (click)="handleCancel()">Cancelar</button>
+        <button type="submit" class="btn btn-primary">
+          {{ isEditMode() ? 'Salvar' : 'Cadastrar' }}
+        </button>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div class="form-field" [class.invalid]="hasError('fullName')">
+        <label for="fullName">Nome completo</label>
+        <input
+          id="fullName"
+          type="text"
+          placeholder="Nome completo"
+          formControlName="fullName"
+        />
+        <span class="field-error" *ngIf="hasError('fullName')">
+          Informe um nome com ao menos 3 caracteres.
+        </span>
+      </div>
+
+      <div class="form-field" [class.invalid]="hasError('birthDate')">
+        <label for="birthDate">Data de nascimento</label>
+        <input id="birthDate" type="date" formControlName="birthDate" [max]="today" />
+        <span class="field-error" *ngIf="hasError('birthDate')">
+          Escolha uma data válida.
+        </span>
+      </div>
+
+      <div class="form-field" [class.invalid]="hasError('email')">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="email@dominio.com" formControlName="email" />
+        <span class="field-error" *ngIf="hasError('email')">
+          Informe um e-mail válido.
+        </span>
+      </div>
+
+      <div class="form-field" [class.invalid]="hasError('password')">
+        <label for="password">Senha</label>
+        <input id="password" type="password" placeholder="******" formControlName="password" />
+        <span class="field-error" *ngIf="hasError('password')">
+          Use ao menos 8 caracteres, combinando letras, números e um caractere especial.
+        </span>
+      </div>
+    </div>
+
+    <div class="address-grid" formGroupName="address">
+      <h2>Endereço</h2>
+      <div class="form-grid">
+        <div class="form-field" [class.invalid]="hasError('address.state')">
+          <label for="state">UF</label>
+          <select id="state" formControlName="state">
+            <option value="">Selecione</option>
+            <option *ngFor="let state of states" [value]="state.code">
+              {{ state.code }} - {{ state.name }}
+            </option>
+          </select>
+          <span class="field-error" *ngIf="hasError('address.state')">
+            Escolha uma UF.
+          </span>
+        </div>
+
+        <div class="form-field" [class.invalid]="hasError('address.street')">
+          <label for="street">Logradouro</label>
+          <input id="street" type="text" formControlName="street" />
+          <span class="field-error" *ngIf="hasError('address.street')">
+            Informe o logradouro.
+          </span>
+        </div>
+
+        <div class="form-field" [class.invalid]="hasError('address.number')">
+          <label for="number">Número</label>
+          <input id="number" type="text" formControlName="number" />
+          <span class="field-error" *ngIf="hasError('address.number')">
+            Informe o número.
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

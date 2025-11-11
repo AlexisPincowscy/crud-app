@@ -1,0 +1,20 @@
+.user-form {
+  h1 {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+
+  h2 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+.address-grid {
+  margin-top: 0.5rem;
+}
+
+.form-field.invalid input,
+.form-field.invalid select {
+  border-color: var(--color-danger);
+}

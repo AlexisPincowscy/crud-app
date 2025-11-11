@@ -1,0 +1,52 @@
+<section class="page users-list">
+  <div class="page-header">
+    <div>
+      <h1>Usuários</h1>
+      <p class="muted-text">Gerencie cadastros utilizando armazenamento local.</p>
+    </div>
+
+    <a class="btn btn-primary" routerLink="/users/new">Novo usuário</a>
+  </div>
+
+  <ng-container *ngIf="users().length; else emptyState">
+    <div class="table-wrapper">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Data de nascimento</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users(); trackBy: trackById">
+            <td data-label="Nome">
+              <div class="user-cell">
+                <span class="user-name">{{ user.fullName }}</span>
+                <span class="user-address">
+                  {{ user.address.street }}, {{ user.address.number }} – {{ user.address.state }}
+                </span>
+              </div>
+            </td>
+            <td data-label="E-mail">{{ user.email }}</td>
+            <td data-label="Data de nascimento">{{ user.birthDate | date: 'dd/MM/yyyy' }}</td>
+            <td data-label="Ações">
+              <div class="actions-row">
+                <a class="btn btn-secondary" [routerLink]="['/users', user.id, 'edit']">Editar</a>
+                <button class="btn btn-danger" type="button" (click)="handleDelete(user)">Excluir</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+</section>
+
+<ng-template #emptyState>
+  <div class="page empty-state">
+    <p>Nenhum usuário cadastrado até o momento.</p>
+    <a class="btn btn-primary" routerLink="/users/new">Cadastrar primeiro usuário</a>
+  </div>
+</ng-template>
