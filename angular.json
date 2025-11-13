@@ -35,6 +35,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/crud-app/",
               "budgets": [
                 {
                   "type": "initial",
