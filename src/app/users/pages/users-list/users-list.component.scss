@@ -29,26 +29,18 @@ $bp-tablet: 768px;
 
 .actions-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  width: 100%;
+  flex-wrap: nowrap;
+  gap: 0.35rem;
+  width: auto;
 }
 
 .actions-row .btn {
-  flex: 1 1 calc(50% - 0.4rem);
+  flex: 0 0 auto;
   width: auto;
-  min-width: 120px;
 }
 
 @media (min-width: $bp-tablet) {
   .actions-row {
     justify-content: flex-end;
-    flex-wrap: nowrap;
-    width: auto;
-  }
-
-  .actions-row .btn {
-    flex: 0 0 auto;
-    min-width: auto;
   }
 }

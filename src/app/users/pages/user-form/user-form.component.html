@@ -12,12 +12,6 @@
         </p>
       </div>
 
-      <div class="actions actions--inline">
-        <button type="submit" class="btn btn-primary">
-          {{ isEditMode() ? 'Salvar' : 'Cadastrar' }}
-        </button>
-        <button type="button" class="btn btn-secondary" (click)="handleCancel()">Cancelar</button>
-      </div>
     </div>
 
     <div class="form-grid">
@@ -110,6 +104,13 @@
           </span>
         </div>
       </div>
+    </div>
+
+    <div class="actions actions--inline">
+      <button type="submit" class="btn btn-primary">
+        {{ isEditMode() ? 'Salvar' : 'Cadastrar' }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="handleCancel()">Cancelar</button>
     </div>
 
     <div class="actions actions--stacked">
