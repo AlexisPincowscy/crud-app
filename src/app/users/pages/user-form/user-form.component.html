@@ -100,9 +100,10 @@
           <label for="number">Numero</label>
           <input
             id="number"
-            type="text"
+            type="number"
             inputmode="numeric"
-            pattern="\\d*"
+            min="0"
+            step="1"
             class="form-control"
             formControlName="number"
           />
