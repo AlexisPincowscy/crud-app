@@ -33,8 +33,8 @@
             <td data-label="Data de nascimento">{{ user.birthDate | date: 'dd/MM/yyyy' }}</td>
             <td data-label="Ações">
               <div class="actions-row">
-                <a class="btn btn-secondary" [routerLink]="['/users', user.id, 'edit']">Editar</a>
-                <button class="btn btn-danger" type="button" (click)="handleDelete(user)">Excluir</button>
+                <a class="btn btn-secondary btn-sm" [routerLink]="['/users', user.id, 'edit']">Editar</a>
+                <button class="btn btn-danger btn-sm" type="button" (click)="handleDelete(user)">Excluir</button>
               </div>
             </td>
           </tr>

@@ -112,5 +112,4 @@ export class UserFormComponent {
     const control = this.form.get(controlPath);
     return !!control && control.invalid && (control.dirty || control.touched);
   }
-
 }
