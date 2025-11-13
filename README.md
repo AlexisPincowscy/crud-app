@@ -23,7 +23,7 @@ Mini aplicativo Angular 20 standalone para gestao de usuarios com CRUD completo,
 
 ## Funcionalidades
 - CRUD completo de usuarios (`/users`, `/users/new`, `/users/:id/edit`)
-- Formulario reativo com validacoes para nome, data, e-mail, senha e endereco completo (UF, logradouro, numero). O campo **Numero** aceita apenas digitos (`inputmode="numeric"` + `pattern="\d*"`).
+- Formulario reativo com validacoes para nome, data, e-mail, senha e endereco completo (UF, logradouro, numero). O campo **Numero** aceita apenas digitos (`inputmode="numeric"`).
 - Listagem com busca por nome (filtro instantaneo em memoria)
 - Persistencia local via `UserService` + `localStorage` utilizando Signals
 - Componentes standalone organizados por feature (`users/pages`, `users/services`, `users/models`)
