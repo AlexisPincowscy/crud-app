@@ -23,7 +23,7 @@ Mini aplicativo Angular standalone (v20) para gestão de usuários com CRUD comp
 - Formulário reativo com validações para nome, data de nascimento, e-mail, senha e endereço completo (UF, logradouro, número)
 - Persistência no navegador com service dedicado (`UserService`) + `localStorage`
 - Componentes standalone organizados por feature (`users/pages`, `users/services`, etc.)
-- Estilos globais em `src/styles.scss` + CSS modular por página
+- Estilos globais em `src/styles.scss` + CSS modular por página (com Bootstrap)
 
 ### Estrutura principal
 ```
