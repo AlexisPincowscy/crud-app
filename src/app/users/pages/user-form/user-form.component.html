@@ -98,7 +98,14 @@
 
         <div class="form-field" [class.invalid]="hasError('address.number')">
           <label for="number">Numero</label>
-          <input id="number" type="text" class="form-control" formControlName="number" />
+          <input
+            id="number"
+            type="text"
+            inputmode="numeric"
+            pattern="\\d*"
+            class="form-control"
+            formControlName="number"
+          />
           <span class="field-error" *ngIf="hasError('address.number')">
             Informe o numero.
           </span>

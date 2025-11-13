@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
@@ -14,10 +14,22 @@ import { User } from '../../models/user.model';
 })
 export class UsersListComponent {
   private readonly userService = inject(UserService);
-  protected readonly users = this.userService.users;
+  private readonly users = this.userService.users;
+  protected readonly searchTerm = signal('');
+  protected readonly filteredUsers = computed(() => {
+    const term = this.searchTerm().trim().toLowerCase();
+    if (!term) {
+      return this.users();
+    }
+    return this.users().filter((user) => user.fullName.toLowerCase().includes(term));
+  });
 
   protected trackById(_: number, user: User): string {
     return user.id;
+  }
+
+  protected handleSearch(value: string): void {
+    this.searchTerm.set(value);
   }
 
   protected handleDelete(user: User): void {

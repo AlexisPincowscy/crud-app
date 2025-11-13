@@ -27,6 +27,27 @@ $bp-tablet: 768px;
   color: var(--color-muted);
 }
 
+.search-bar {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.search-input {
+  max-width: 360px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
 .actions-row {
   display: flex;
   flex-wrap: nowrap;

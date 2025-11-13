@@ -8,7 +8,19 @@
     <a class="btn btn-primary" routerLink="/users/new">Novo usuário</a>
   </div>
 
-  <ng-container *ngIf="users().length; else emptyState">
+  <div class="search-bar">
+    <label class="sr-only" for="searchUser">Buscar usuário</label>
+    <input
+      id="searchUser"
+      type="search"
+      class="form-control search-input"
+      placeholder="Buscar usuário por nome"
+      [value]="searchTerm()"
+      (input)="handleSearch($event.target.value)"
+    />
+  </div>
+
+  <ng-container *ngIf="filteredUsers().length; else emptyState">
     <div class="table-wrapper">
       <table class="table">
         <thead>
@@ -20,7 +32,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of users(); trackBy: trackById">
+          <tr *ngFor="let user of filteredUsers(); trackBy: trackById">
             <td data-label="Nome">
               <div class="user-cell">
                 <span class="user-name">{{ user.fullName }}</span>
