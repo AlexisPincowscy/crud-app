@@ -45,11 +45,5 @@ src/
 - `UserService` possui specs cobrindo criação/atualização/exclusão com storage mockado
 - `UsersListComponent` validado com `RouterTestingModule` para garantir renderização e exclusão
 
-### Próximos passos sugeridos
-- Adicionar e2e (Cypress/Playwright) se necessário
-- Publicar o build (`ng build --configuration production`) em Vercel/GitHub Pages
-
-
-
 ### Deploy (GitHub Pages)
 - Build publicado em https://alexispincowscy.github.io/crud-app/users
