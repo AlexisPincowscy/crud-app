@@ -1,55 +1,35 @@
-## CRUD App
+# Angular User Management
 
-Mini aplicativo Angular 20 standalone para gestao de usuarios com CRUD completo, formulários reativos e persistencia em `localStorage`. Layout mobile-first, responsivo com SCSS + Bootstrap.
+An Angular 20 demo for creating, viewing, editing, and deleting users. It uses standalone components, reactive forms, Signals, and browser storage. The responsive layout uses SCSS and Bootstrap.
 
-### Demo (GitHub Pages)
-- https://alexispincowscy.github.io/crud-app/users
+[Open the live demo](https://alexispincowscy.github.io/crud-app/users)
 
-## Como rodar localmente
-1. Instale dependencias
-   ```bash
-   npm install
-   ```
-2. Suba o servidor de desenvolvimento
-   ```bash
-   npm start
-   ```
-   Abra `http://localhost:4200/`. Use `ng serve -o` se quiser abrir automaticamente.
+## Run locally
 
-### Scripts uteis
-- `npm start` – `ng serve` em modo dev
-- `npm run build` – build de producao em `dist/crud-app`
-- `npm test` – testes unitarios (Karma/Jasmine)
-
-## Funcionalidades
-- CRUD completo de usuarios (`/users`, `/users/new`, `/users/:id/edit`)
-- Formulario reativo com validacoes para nome, data, e-mail, senha e endereco completo (UF, logradouro, numero). O campo **Numero** aceita apenas digitos (`inputmode="numeric"`).
-- Listagem com busca por nome (filtro instantaneo em memoria)
-- Persistencia local via `UserService` + `localStorage` utilizando Signals
-- Componentes standalone organizados por feature (`users/pages`, `users/services`, `users/models`)
-- Estilos globais em `src/styles.scss` + utilitarios Bootstrap
-
-## Estrutura principal
-```
-src/
- ├─ app/
- │   ├─ app.config.ts
- │   ├─ app.routes.ts
- │   ├─ users/
- │   │   ├─ pages/
- │   │   │   ├─ users-list/
- │   │   │   └─ user-form/
- │   │   ├─ services/user.service.ts
- │   │   ├─ models/user.model.ts
- │   │   └─ constants/states.ts
- ├─ styles.scss
- └─ main.ts
+```bash
+npm install
+npm start
 ```
 
-## Testes
-- `UserService` testado com mock de `localStorage`
-- `UsersListComponent` validado com `RouterTestingModule` (renderizacao + delete)
-- `App` checa bootstrap do shell
+Open http://localhost:4200/.
 
-## Deploy
-- Workflow GitHub Actions (`.github/workflows/static.yml`) roda `npm ci`, `npm run build -- --configuration production --base-href /crud-app/` e publica em GitHub Pages.
+## Features
+
+- Browse and filter users by name at `/users`.
+- Create and edit users at `/users/new` and `/users/:id/edit`.
+- Validate name, date, email, password, and address with reactive forms. The street number field accepts digits only.
+- Keep data in the current browser with `UserService`, Angular Signals, and `localStorage`. Use sample data when trying the demo.
+
+## Project structure
+
+- `src/app/app.routes.ts` defines the routes.
+- `src/app/users/pages/` contains the list and form views.
+- `src/app/users/services/user.service.ts` manages state and persistence.
+- `src/app/users/models/` and `src/app/users/constants/` contain the user model and state options.
+- `src/styles.scss` contains the global styles.
+
+## Build, test, and deploy
+
+- `npm run build` builds to `dist/crud-app`.
+- `npm test` runs the Karma and Jasmine tests. Coverage includes browser storage, list rendering and deletion, and application startup.
+- The [GitHub Actions workflow](.github/workflows/static.yml) builds and deploys the app to GitHub Pages.
